@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ask pi settings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --paper: #F8F9FC; --raised: #FFFFFF; --ink: #1A2030; --muted: #5D6678; --rule: #DFE3EC;
+    --accent: #2539D6; --accent-ink: #FFFFFF; --accent-soft: rgba(37,57,214,.09); --ok: #157F3B; --danger: #B42318;
+    --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --serif: Charter, "Bitstream Charter", "Iowan Old Style", Cambria, Georgia, serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper: #171A22; --raised: #1F2330; --ink: #E8EAF0; --muted: #9AA2B4; --rule: #2B3040;
+      --accent: #8B9BFF; --accent-ink: #10142A; --accent-soft: rgba(139,155,255,.12); --ok: #6FD08C; --danger: #FF8A80; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 14px/1.55 var(--sans); }
+  main { max-width: 600px; margin: 0 auto; padding: 48px 24px 64px; }
+  h1 { font: 700 30px/1.15 var(--serif); margin: 0 0 6px; display: flex; align-items: baseline; gap: 12px; }
+  h1 span { color: var(--accent); font-size: 38px; }
+  .lede { color: var(--muted); margin: 0 0 32px; max-width: 60ch; }
+  h2 { font: 600 15px/1.3 var(--sans); margin: 32px 0 10px; }
+  ol.steps { margin: 0; padding-left: 1.3em; color: var(--muted); }
+  ol.steps li { margin: 6px 0; }
+  code, pre { font: 12.5px/1.5 var(--mono); }
+  pre { background: var(--raised); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; color: var(--ink); overflow-x: auto; margin: 6px 0 0; }
+  label { display: block; font-weight: 600; margin: 18px 0 6px; }
+  .help { color: var(--muted); font-size: 12.5px; margin: 4px 0 0; }
+  input[type=text], input[type=password] {
+    width: 100%; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 6px;
+    background: var(--raised); color: var(--ink); font: 13px/1.4 var(--mono);
+  }
+  input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+  .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; }
+  .check input { margin-top: 4px; accent-color: var(--accent); }
+  .row { display: flex; gap: 10px; align-items: center; margin-top: 24px; flex-wrap: wrap; }
+  button { height: 36px; padding: 0 16px; border-radius: 6px; font: 600 13px/36px var(--sans); cursor: pointer; }
+  .primary { background: var(--accent); color: var(--accent-ink); border: 0; }
+  .secondary { background: var(--raised); color: var(--ink); border: 1px solid var(--rule); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #status { font-size: 13px; }
+  #status.ok { color: var(--ok); } #status.bad { color: var(--danger); }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1><span>π</span> Ask pi</h1>
+  <p class="lede">Select text on any page, then click the π button or press <code>Alt+Shift+A</code>. Your question goes to the pi harness running on this computer.</p>
+
+  <h2>Connect to pi</h2>
+  <ol class="steps">
+    <li>Start the bridge in a terminal (Node 18+ and pi on your PATH):
+      <pre>node pi-bridge.mjs</pre></li>
+    <li>Copy the token it prints and paste it below.</li>
+    <li>Choose Test connection.</li>
+  </ol>
+
+  <label for="token">Bridge token</label>
+  <input id="token" type="password" autocomplete="off" spellcheck="false" placeholder="Paste the token from the bridge">
+  <p class="help">Also saved at <code>~/.pi-ask-bridge-token</code>. It stops other websites from using your pi through localhost.</p>
+
+  <label for="url">Bridge address</label>
+  <input id="url" type="text" spellcheck="false" placeholder="http://127.0.0.1:7421">
+
+  <label class="check"><input id="chip" type="checkbox"> Show the π button when I select text</label>
+  <p class="help">Turn this off to use only the keyboard shortcut or the right-click menu. Change the shortcut at <code>chrome://extensions/shortcuts</code>.</p>
+
+  <div class="row">
+    <button id="save" class="primary" type="button">Save and test connection</button>
+    <span id="status" role="status"></span>
+  </div>
+  <hr>
+</main>
+<script src="options.js"></script>
+</body>
+</html>
