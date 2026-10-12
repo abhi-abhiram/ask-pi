@@ -27,7 +27,7 @@ content.js (π button + panel) ──port──▶ background.js ──HTTP/SSE�
 - Extension: `chrome://extensions` → Developer mode → **Load unpacked** → `extension/`. After you edit extension files, reload it there.
 - Quick bridge check: `curl -H "x-pi-bridge-token: $(cat ~/.pi-ask-bridge-token)" http://127.0.0.1:7421/health`
 
-There is no build step, package.json, test suite or linter. Check changes by hand: run the bridge, reload the extension, and try it on a real page.
+There is no build step, package.json, test suite or linter. `./scripts/package.sh` zips `extension/` into `dist/` for the Chrome Web Store (bump `version` in the manifest first; listing copy is in `store/listing.md`, and the privacy policy is `PRIVACY.md`). If you change what data the extension reads or sends, update both. Check changes by hand: run the bridge, reload the extension, and try it on a real page.
 
 ## Conventions and constraints
 

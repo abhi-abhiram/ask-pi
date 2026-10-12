@@ -56,6 +56,14 @@ Each panel gets its own pi process so follow-ups keep context. Processes close w
 - **Tools are off by default.** Selected web text can contain prompt-injection attempts. With `--no-tools`, pi can only answer in text. Only use `--allow-tools` if you trust what you're selecting.
 - Answers are rendered with a small Markdown renderer that escapes all HTML first.
 
+## Publishing to the Chrome Web Store
+
+```bash
+./scripts/package.sh   # builds dist/ask-pi-<version>.zip from extension/
+```
+
+Bump `version` in `extension/manifest.json` before each upload. You can paste the listing text, permission justifications, privacy answers and reviewer test steps from [`store/listing.md`](store/listing.md). The privacy policy is [`PRIVACY.md`](PRIVACY.md).
+
 ## Files
 
 ```
@@ -67,4 +75,9 @@ extension/
   icons/
 bridge/
   pi-bridge.mjs   localhost HTTP/SSE ↔ pi RPC
+scripts/
+  package.sh      builds the Web Store zip
+store/
+  listing.md      Web Store listing and review answers
+PRIVACY.md        privacy policy (linked from the store listing)
 ```
