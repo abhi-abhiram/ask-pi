@@ -36,4 +36,4 @@ The developer doesn't collect, sell or share any data. There are no analytics, a
 
 ## Contact
 
-Questions or issues: <https://github.com/abhiram-makerstudio/ask-pi/issues>
+Questions or issues: <https://github.com/abhi-abhiram/ask-pi/issues>

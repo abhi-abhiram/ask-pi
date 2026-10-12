@@ -23,7 +23,7 @@ REQUIRES A LOCAL SETUP
 Ask pi is a companion to pi (https://pi.dev), an AI coding harness you run on your own computer. It is not affiliated with pi's authors. You need:
 • pi installed and set up with a model
 • Node.js 18 or newer
-• The Ask pi bridge, a small open-source file: https://github.com/abhiram-makerstudio/ask-pi
+• The Ask pi bridge, a small open-source file: https://github.com/abhi-abhiram/ask-pi
 
 After installing, the settings page walks you through starting the bridge and pasting its token.
 
@@ -40,7 +40,7 @@ PRIVATE BY DESIGN
 • pi runs without tools by default, so text on a page can't make it run commands or touch files
 • No analytics, ads or tracking
 
-Open source: https://github.com/abhiram-makerstudio/ask-pi
+Open source: https://github.com/abhi-abhiram/ask-pi
 ```
 
 **Graphics:**
@@ -52,9 +52,9 @@ Open source: https://github.com/abhiram-makerstudio/ask-pi
 | Small promo tile | 440×280 PNG | Yes |
 | Marquee promo tile | 1400×560 PNG | No |
 
-**Official URL / Homepage:** https://github.com/abhiram-makerstudio/ask-pi
+**Official URL / Homepage:** https://github.com/abhi-abhiram/ask-pi
 
-**Support URL:** https://github.com/abhiram-makerstudio/ask-pi/issues
+**Support URL:** https://github.com/abhi-abhiram/ask-pi/issues
 
 ## Privacy practices
 
@@ -99,7 +99,7 @@ Then certify all three:
 - [x] I do not use or transfer user data for purposes that are unrelated to my item's single purpose
 - [x] I do not use or transfer user data to determine creditworthiness or for lending purposes
 
-**Privacy policy URL:** https://github.com/abhiram-makerstudio/ask-pi/blob/main/PRIVACY.md
+**Privacy policy URL:** https://github.com/abhi-abhiram/ask-pi/blob/main/PRIVACY.md
 
 ## Test instructions (for the reviewer)
 
@@ -109,7 +109,7 @@ Ask pi needs a local backend, the pi AI harness (https://pi.dev), plus a small b
 To test fully:
 1. Install pi and set up any model provider (see https://pi.dev).
 2. Install Node.js 18+.
-3. Run: curl -fsSLO https://raw.githubusercontent.com/abhiram-makerstudio/ask-pi/main/bridge/pi-bridge.mjs && node pi-bridge.mjs
+3. Run: curl -fsSLO https://raw.githubusercontent.com/abhi-abhiram/ask-pi/main/bridge/pi-bridge.mjs && node pi-bridge.mjs
 4. Copy the token it prints into the extension's settings page (opens on install), then click "Save and test connection".
 5. On any web page, select some text, click the π button, and click "Explain".
 ```
