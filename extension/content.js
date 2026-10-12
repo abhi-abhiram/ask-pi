@@ -496,7 +496,14 @@
     const t = panel?.el.thread;
     if (t) t.scrollTop = t.scrollHeight;
   }
-  function autoGrow(ta) { ta.style.height = "auto"; ta.style.height = Math.min(ta.scrollHeight, 140) + "px"; }
+  // scrollHeight excludes borders, and the textarea is border-box, so add them back
+  // (otherwise it ends up 2px short and shows a scrollbar).
+  function autoGrow(ta) {
+    ta.style.height = "auto";
+    const h = ta.scrollHeight + ta.offsetHeight - ta.clientHeight;
+    ta.style.height = Math.min(h, 140) + "px";
+    ta.style.overflowY = h > 140 ? "auto" : "hidden";
+  }
   function makeId() {
     if (crypto.randomUUID) { try { return crypto.randomUUID(); } catch {} } // needs a secure context
     const a = crypto.getRandomValues(new Uint8Array(16));
@@ -687,7 +694,7 @@
 
 .composer { display: flex; gap: 8px; align-items: flex-end; padding: 10px 10px 8px 14px; border-top: 1px solid var(--rule); }
 textarea {
-  flex: 1; resize: none; min-height: 34px; max-height: 140px; padding: 7px 10px;
+  flex: 1; resize: none; min-height: 36px; max-height: 140px; padding: 7px 10px; overflow-y: hidden;
   border: 1px solid var(--rule); border-radius: 6px; background: var(--raised); color: var(--ink);
   font: 400 13.5px/1.4 var(--sans);
 }
