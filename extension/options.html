@@ -44,6 +44,7 @@
   #status { font-size: 13px; }
   #status.ok { color: var(--ok); } #status.bad { color: var(--danger); }
   hr { border: 0; border-top: 1px solid var(--rule); margin: 36px 0 0; }
+  a { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -53,8 +54,10 @@
 
   <h2>Connect to pi</h2>
   <ol class="steps">
-    <li>Start the bridge in a terminal (Node 18+ and pi on your PATH):
-      <pre>node pi-bridge.mjs</pre></li>
+    <li>Download the bridge and start it in a terminal (Node 18+ and pi on your PATH):
+      <pre>curl -fsSLO https://raw.githubusercontent.com/abhiram-makerstudio/ask-pi/main/bridge/pi-bridge.mjs
+node pi-bridge.mjs</pre>
+      <p class="help">The bridge is a single dependency-free file. Read it first if you like: <a href="https://github.com/abhiram-makerstudio/ask-pi" target="_blank" rel="noopener">github.com/abhiram-makerstudio/ask-pi</a></p></li>
     <li>Copy the token it prints and paste it below.</li>
     <li>Choose Test connection.</li>
   </ol>
