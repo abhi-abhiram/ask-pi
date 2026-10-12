@@ -26,7 +26,7 @@
   ol.steps { margin: 0; padding-left: 1.3em; color: var(--muted); }
   ol.steps li { margin: 6px 0; }
   code, pre { font: 12.5px/1.5 var(--mono); }
-  pre { background: var(--raised); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; color: var(--ink); overflow-x: auto; margin: 6px 0 0; }
+  pre { background: var(--raised); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; color: var(--ink); white-space: pre-wrap; overflow-wrap: anywhere; margin: 6px 0 0; }
   label { display: block; font-weight: 600; margin: 18px 0 6px; }
   .help { color: var(--muted); font-size: 12.5px; margin: 4px 0 0; }
   input[type=text], input[type=password] {
@@ -57,9 +57,9 @@
     <li>Download the bridge and start it in a terminal (Node 18+ and pi on your PATH):
       <pre>curl -fsSLO https://raw.githubusercontent.com/abhi-abhiram/ask-pi/main/bridge/pi-bridge.mjs
 node pi-bridge.mjs</pre>
-      <p class="help">The bridge is a single dependency-free file. Read it first if you like: <a href="https://github.com/abhi-abhiram/ask-pi" target="_blank" rel="noopener">github.com/abhi-abhiram/ask-pi</a></p></li>
+      <p class="help">The bridge is a single dependency-free file. Read it first if you like, <a href="https://github.com/abhi-abhiram/ask-pi" target="_blank" rel="noopener">on GitHub</a>.</p></li>
     <li>Copy the token it prints and paste it below.</li>
-    <li>Choose Test connection.</li>
+    <li>Choose <strong>Save and test connection</strong>.</li>
   </ol>
 
   <label for="token">Bridge token</label>
