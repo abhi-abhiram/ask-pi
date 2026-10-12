@@ -45,12 +45,14 @@ Open source: https://github.com/abhi-abhiram/ask-pi
 
 **Graphics:**
 
-| Asset | Size | Required |
+| Asset | Size | File |
 |---|---|---|
-| Store icon | 128×128 PNG | Yes: `extension/icons/128.png` |
-| Screenshots | 1280×800 or 640×400, 1–5 | At least 1 |
-| Small promo tile | 440×280 PNG | Yes |
-| Marquee promo tile | 1400×560 PNG | No |
+| Store icon | 128×128 | `extension/icons/128.png` |
+| Screenshots (upload in this order) | 1280×800 | `store/images/1-answer.png`, `2-follow-ups-dark.png`, `3-select-text.png`, `4-settings.png` |
+| Small promo tile | 440×280 | `store/images/promo-small-440x280.png` |
+| Marquee promo tile (optional) | 1400×560 | not made |
+
+The screenshots were taken in headless Chromium against a demo article, with real answers from pi.
 
 **Official URL / Homepage:** https://github.com/abhi-abhiram/ask-pi
 
