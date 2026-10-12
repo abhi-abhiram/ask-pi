@@ -248,7 +248,11 @@
     else panel.lastRect = r;
     const W = panelWidth();
     const cx = r.left + r.width / 2;
-    wrap.style.width = W + "px";
+    const width = W + "px";
+    if (wrap.style.width !== width) {
+      wrap.style.width = width;
+      autoGrow(panel.el.input); // Recalculate wrapping and overflow at the new width.
+    }
     wrap.style.top = wrap.style.bottom = "auto";
     wrap.dataset.side = panel.side;
 
